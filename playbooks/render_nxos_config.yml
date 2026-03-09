@@ -13,6 +13,9 @@
 
     - name: Commit changes
       ansible.builtin.command: "git commit -m 'Automated configuration update via Ansible'"
+      args:
+        chdir: ~/repositories/network
+      delegate_to: localhost
       register: commit_result
 
     - name: Ensure feature scp-server is enabled
