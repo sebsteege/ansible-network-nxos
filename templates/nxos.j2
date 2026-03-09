@@ -185,8 +185,8 @@ interface {{ interface.name }}
 {% if interface.enabled != true %}
  shutdown
 {% endif %}
-{% endfor %}
 
+{% endfor %}
 {% for interface in loopback_interfaces %}
 interface {{ interface.name }}
 {% if interface.ip_address is defined %}
@@ -202,8 +202,8 @@ interface {{ interface.name }}
 {% if interface.enabled != true %}
  shutdown
 {% endif %}
-{% endfor %}
 
+{% endfor %}
 interface mgmt0
   vrf member management
   ip address {{ management_ip }}{{ management_mask }}
