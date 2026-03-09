@@ -1,6 +1,6 @@
 ---
 - name: Render configuration from template for Cisco NX-OS
-  hosts: Leaf1
+  hosts: all
   gather_facts: false
 
   tasks:
@@ -11,36 +11,6 @@
         dest: "../configs/{{ inventory_hostname }}.cfg"
       delegate_to: localhost
       register: render_result
-
-    - name: Git add, commit and push
-      block:
-        - name: Add changes to git
-          ansible.builtin.command: "git add ."
-          args:
-            chdir: ~/repositories/network
-          delegate_to: localhost
-
-        - name: Commit changes
-          ansible.builtin.command: "git commit -m 'Automated configuration update via Ansible'"
-          args:
-            chdir: ~/repositories/network
-          delegate_to: localhost
-          register: commit_result    
-          
-        - name: Push changes to the remote repository
-          ansible.builtin.command: "git push -u origin main" # Adjust 'origin main' as needed
-          args:
-            chdir: ~/repositories/network
-          register: push_result
-          when: commit_result is not failed and "nothing to commit" not in commit_result.stdout
-
-        - name: Display commit and push results
-          ansible.builtin.debug:
-            msg: "{{ item.stdout }}"
-          loop: "{{ [commit_result, push_result] }}"
-          when: item is defined and item is not failed
-      when: render_result.changed
-
 
     - name: Copy and merge device configuration
       block:
@@ -60,3 +30,32 @@
             replace: config
             save_when: modified
       when: render_result.changed
+
+    - name: Git add, commit and push
+      block:
+        - name: Add changes to git
+          ansible.builtin.command: "git add ."
+          args:
+            chdir: ~/repositories/network
+          run_once: true
+
+        - name: Commit changes
+          ansible.builtin.command: "git commit -m 'Automated configuration update via Ansible'"
+          args:
+            chdir: ~/repositories/network
+          delegate_to: localhost
+          register: commit_result    
+          
+        - name: Push changes to the remote repository
+          ansible.builtin.command: "git push -u origin main"
+          args:
+            chdir: ~/repositories/network
+          register: push_result
+          when: commit_result is not failed and "nothing to commit" not in commit_result.stdout
+
+        - name: Display commit and push results
+          ansible.builtin.debug:
+            msg: "{{ item.stdout }}"
+          loop: "{{ [commit_result, push_result] }}"
+          when: item is defined and item is not failed
+      delegate_to: localhost
