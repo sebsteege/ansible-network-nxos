@@ -187,6 +187,10 @@ interface {{ interface.name }}
 {% endif %}
 
 {% endfor %}
+interface mgmt0
+  vrf member management
+  ip address {{ management_ip }}{{ management_mask }}
+
 {% for interface in loopback_interfaces %}
 interface {{ interface.name }}
 {% if interface.ip_address is defined %}
@@ -204,9 +208,6 @@ interface {{ interface.name }}
 {% endif %}
 
 {% endfor %}
-interface mgmt0
-  vrf member management
-  ip address {{ management_ip }}{{ management_mask }}
 icam monitor scale
 
 line console
