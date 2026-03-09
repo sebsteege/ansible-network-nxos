@@ -1,0 +1,32 @@
+---
+- name: Render configuration from template for Cisco NX-OS
+  hosts: Leaf1
+  gather_facts: false
+
+  tasks:
+
+    - name: Render config from template
+      ansible.builtin.template:
+        src: ../templates/nxos.j2
+        dest: "../configs/{{ inventory_hostname }}.cfg"
+      delegate_to: localhost
+
+    - name: Commit changes
+      ansible.builtin.command: "git commit -m 'Automated configuration update via Ansible'"
+      register: commit_result
+
+    - name: Ensure feature scp-server is enabled
+      cisco.nxos.nxos_feature:
+        feature: scp-server
+        state: enabled
+
+    - name: Copy config to device
+      ansible.netcommon.net_put:
+        src: "../configs/{{ inventory_hostname }}.cfg"
+        dest: "bootflash:/{{ inventory_hostname }}.cfg"
+
+    - name: Replace config
+      cisco.nxos.nxos_config:
+        replace_src: "bootflash:/{{ inventory_hostname }}.cfg"
+        replace: config
+        save_when: modified

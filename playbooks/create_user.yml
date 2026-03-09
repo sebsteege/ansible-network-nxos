@@ -1,0 +1,22 @@
+---
+- name: Render configuration from template for Cisco NX-OS
+  hosts: Leaf1
+  gather_facts: false
+  connection: ansible.netcommon.network_cli
+  vars:
+    ansible_user: admin
+    ansible_ssh_pass: SeaBass7!
+    ansible_network_os: cisco.nxos.nxos
+
+  tasks:
+
+    - name: Get hostname
+      cisco.nxos.nxos_facts:
+        gather_subset: hardware
+
+    - name: Create ansible user on device
+      cisco.nxos.nxos_user:
+        name: ansible
+        sshkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+        role: network-admin
+        state: present

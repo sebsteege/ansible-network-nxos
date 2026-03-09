@@ -1,0 +1,13 @@
+---
+management_gateway: 192.168.100.1
+
+interfaces:
+  - name: mgmt0
+    vrf: management
+    ip_address: 192.168.100.200
+    mask: /24
+
+features:
+  - name: scp-server
+    state: enabled
+  
