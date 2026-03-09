@@ -187,6 +187,27 @@ interface {{ interface.name }}
 {% else %}
  shutdown
 {% endif %}
+
+{% endfor %}
+
+{% for interface in loopback_interfaces %}
+interface {{ interface.name }}
+{% if interface.ip_address is defined %}
+ no switchport
+ ip address {{ interface.ip_address }}{{ interface.mask }}
+{% endif %}
+{% if interface.ospf_process_id is defined %}
+ ip router ospf {{ interface.ospf_process_id }} area {{ interface.ospf_area }}
+{% endif %}
+{% if interface.pim is defined %}
+ ip pim {{ interface.pim }}
+{% endif %}
+{% if interface.enabled == true %}
+ no shutdown
+{% else %}
+ shutdown
+{% endif %}
+
 {% endfor %}
 
 interface mgmt0

@@ -3,7 +3,7 @@ management_gateway: 192.168.100.1
 management_ip: 192.168.100.200
 management_mask: /24
 
-interfaces:
+loopback_interfaces:
   - name: loopback0
     ip_address: 198.51.100.30
     mask: /32
@@ -18,6 +18,8 @@ interfaces:
     ospf_area: 0.0.0.0
     pim: sparse-mode
     enabled: true
+
+interfaces:
   - name: eth1/2
     ip_address: 192.168.1.11
     mask: /24
