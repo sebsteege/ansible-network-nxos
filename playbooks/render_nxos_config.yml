@@ -10,6 +10,7 @@
         src: ../templates/nxos.j2
         dest: "../configs/{{ inventory_hostname }}.cfg"
       delegate_to: localhost
+      register: render_result
 
     - name: Add changes to git
       ansible.builtin.command: "git add ."
@@ -39,3 +40,4 @@
         replace_src: "bootflash:/{{ inventory_hostname }}.cfg"
         replace: config
         save_when: modified
+      when: render_result.changed
