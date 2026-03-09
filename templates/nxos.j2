@@ -175,6 +175,8 @@ interface {{ interface.name }}
 {% if interface.ip_address is defined %}
  no switchport
  ip address {{ interface.ip_address }}{{ interface.mask }}
+{% else %}
+ switchport mode access
 {% endif %}
 {% if interface.ospf_process_id is defined %}
  ip router ospf {{ interface.ospf_process_id }} area {{ interface.ospf_area }}
