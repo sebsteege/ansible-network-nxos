@@ -1,5 +1,5 @@
 ---
-- name: Render configuration from template for Cisco NX-OS
+- name: Create local users on NXOS 
   hosts: all
   gather_facts: false
   connection: ansible.netcommon.network_cli
