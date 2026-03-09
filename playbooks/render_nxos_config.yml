@@ -11,6 +11,12 @@
         dest: "../configs/{{ inventory_hostname }}.cfg"
       delegate_to: localhost
 
+    - name: Add changes to git
+      ansible.builtin.command: "git add ."
+      args:
+        chdir: ~/repositories/network
+      delegate_to: localhost
+
     - name: Commit changes
       ansible.builtin.command: "git commit -m 'Automated configuration update via Ansible'"
       args:

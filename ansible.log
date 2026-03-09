@@ -1968,3 +1968,37 @@ ansible.errors.AnsibleUndefinedVariable: 'dict object' has no attribute 'managem
 2026-03-09 11:03:49,882 p=8329 u=ansible n=ansible | ansible.builtin.command ------------------------------------------------- 0.31s
 2026-03-09 11:03:49,882 p=8329 u=ansible n=ansible | ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 2026-03-09 11:03:49,883 p=8329 u=ansible n=ansible | total ------------------------------------------------------------------- 0.96s
+2026-03-09 11:04:16,008 p=8505 u=ansible n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2026-03-09 11:04:16,139 p=8505 u=ansible n=ansible | PLAY [Render configuration from template for Cisco NX-OS] ****************************************************************************************************************************
+2026-03-09 11:04:16,147 p=8505 u=ansible n=ansible | TASK [Render config from template] ***************************************************************************************************************************************************
+2026-03-09 11:04:16,147 p=8505 u=ansible n=ansible | Monday 09 March 2026  11:04:16 -0400 (0:00:00.010)       0:00:00.010 ********** 
+2026-03-09 11:04:16,147 p=8505 u=ansible n=ansible | Monday 09 March 2026  11:04:16 -0400 (0:00:00.009)       0:00:00.009 ********** 
+2026-03-09 11:04:16,784 p=8505 u=ansible n=ansible | ok: [Leaf1 -> localhost]
+2026-03-09 11:04:16,789 p=8505 u=ansible n=ansible | TASK [Commit changes] ****************************************************************************************************************************************************************
+2026-03-09 11:04:16,789 p=8505 u=ansible n=ansible | Monday 09 March 2026  11:04:16 -0400 (0:00:00.642)       0:00:00.652 ********** 
+2026-03-09 11:04:16,789 p=8505 u=ansible n=ansible | Monday 09 March 2026  11:04:16 -0400 (0:00:00.642)       0:00:00.651 ********** 
+2026-03-09 11:04:17,091 p=8505 u=ansible n=ansible | fatal: [Leaf1 -> localhost]: FAILED! => {"changed": true, "cmd": ["git", "commit", "-m", "Automated configuration update via Ansible"], "delta": "0:00:00.005801", "end": "2026-03-09 11:04:17.063419", "msg": "non-zero return code", "rc": 1, "start": "2026-03-09 11:04:17.057618", "stderr": "", "stderr_lines": [], "stdout": "On branch main\nChanges not staged for commit:\n  (use \"git add <file>...\" to update what will be committed)\n  (use \"git restore <file>...\" to discard changes in working directory)\n\tmodified:   ansible.log\n\nno changes added to commit (use \"git add\" and/or \"git commit -a\")", "stdout_lines": ["On branch main", "Changes not staged for commit:", "  (use \"git add <file>...\" to update what will be committed)", "  (use \"git restore <file>...\" to discard changes in working directory)", "\tmodified:   ansible.log", "", "no changes added to commit (use \"git add\" and/or \"git commit -a\")"]}
+2026-03-09 11:04:17,092 p=8505 u=ansible n=ansible | PLAY RECAP ***************************************************************************************************************************************************************************
+2026-03-09 11:04:17,092 p=8505 u=ansible n=ansible | Leaf1                      : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-03-09 11:04:17,093 p=8505 u=ansible n=ansible | Playbook run took 0 days, 0 hours, 0 minutes, 0 seconds
+2026-03-09 11:04:17,093 p=8505 u=ansible n=ansible | Monday 09 March 2026  11:04:17 -0400 (0:00:00.303)       0:00:00.955 ********** 
+2026-03-09 11:04:17,093 p=8505 u=ansible n=ansible | =============================================================================== 
+2026-03-09 11:04:17,093 p=8505 u=ansible n=ansible | Render config from template --------------------------------------------------------------------------------------------------------------------------------------------------- 0.64s
+2026-03-09 11:04:17,094 p=8505 u=ansible n=ansible | Commit changes ---------------------------------------------------------------------------------------------------------------------------------------------------------------- 0.30s
+2026-03-09 11:04:17,094 p=8505 u=ansible n=ansible | Monday 09 March 2026  11:04:17 -0400 (0:00:00.304)       0:00:00.956 ********** 
+2026-03-09 11:04:17,094 p=8505 u=ansible n=ansible | =============================================================================== 
+2026-03-09 11:04:17,094 p=8505 u=ansible n=ansible | ansible.builtin.template ------------------------------------------------ 0.64s
+2026-03-09 11:04:17,095 p=8505 u=ansible n=ansible | ansible.builtin.command ------------------------------------------------- 0.30s
+2026-03-09 11:04:17,095 p=8505 u=ansible n=ansible | ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+2026-03-09 11:04:17,095 p=8505 u=ansible n=ansible | total ------------------------------------------------------------------- 0.95s
+2026-03-09 11:07:22,721 p=8697 u=ansible n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2026-03-09 11:07:22,853 p=8697 u=ansible n=ansible | PLAY [Render configuration from template for Cisco NX-OS] ****************************************************************************************************************************
+2026-03-09 11:07:22,862 p=8697 u=ansible n=ansible | TASK [Render config from template] ***************************************************************************************************************************************************
+2026-03-09 11:07:22,862 p=8697 u=ansible n=ansible | Monday 09 March 2026  11:07:22 -0400 (0:00:00.012)       0:00:00.012 ********** 
+2026-03-09 11:07:22,863 p=8697 u=ansible n=ansible | Monday 09 March 2026  11:07:22 -0400 (0:00:00.011)       0:00:00.011 ********** 
+2026-03-09 11:07:23,484 p=8697 u=ansible n=ansible | ok: [Leaf1 -> localhost]
+2026-03-09 11:07:23,486 p=8697 u=ansible n=ansible | TASK [Add changes to git] ************************************************************************************************************************************************************
+2026-03-09 11:07:23,486 p=8697 u=ansible n=ansible | Monday 09 March 2026  11:07:23 -0400 (0:00:00.623)       0:00:00.636 ********** 
+2026-03-09 11:07:23,487 p=8697 u=ansible n=ansible | Monday 09 March 2026  11:07:23 -0400 (0:00:00.623)       0:00:00.635 ********** 
