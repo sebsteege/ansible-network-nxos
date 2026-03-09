@@ -215,6 +215,9 @@ icam monitor scale
 line console
 line vty
 boot nxos bootflash:/nxos.9.3.8.bin sup-1
+{% if ospf is defined %}
+router ospf {{ ospf.process_id }}
+{% endif %}
 xml server timeout 1200
 
 no priority-flow-control override-interface mode off
