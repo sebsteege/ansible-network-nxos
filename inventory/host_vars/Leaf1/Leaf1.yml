@@ -21,14 +21,14 @@ loopback_interfaces:
 
 interfaces:
   - name: eth1/2
-    ip_address: 192.168.1.11
+    ip_address: 192.168.11.2
     mask: /24
     ospf_process_id: 1
     ospf_area: 0.0.0.0
     pim: sparse-mode
     enabled: true
   - name: eth1/3
-    ip_address: 192.168.2.12
+    ip_address: 192.168.12.2
     mask: /24
     ospf_process_id: 1
     ospf_area: 0.0.0.0

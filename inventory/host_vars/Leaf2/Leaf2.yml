@@ -1,8 +1,43 @@
 ---
 management_gateway: 192.168.100.1
+management_ip: 192.168.100.201
+management_mask: /24
+
+loopback_interfaces:
+  - name: loopback0
+    ip_address: 198.51.100.30
+    mask: /32
+    ospf_process_id: 1
+    ospf_area: 0.0.0.0
+    pim: sparse-mode
+    enabled: true
+  - name: loopback1
+    ip_address: 192.51.100.33
+    mask: /32
+    ospf_process_id: 1
+    ospf_area: 0.0.0.0
+    pim: sparse-mode
+    enabled: true
 
 interfaces:
-  - name: mgmt0
-    vrf: management
-    ip_address: 192.168.100.201
+  - name: eth1/2
+    ip_address: 192.168.12.2
     mask: /24
+    ospf_process_id: 1
+    ospf_area: 0.0.0.0
+    pim: sparse-mode
+    enabled: true
+  - name: eth1/3
+    ip_address: 192.168.22.2
+    mask: /24
+    ospf_process_id: 1
+    ospf_area: 0.0.0.0
+    pim: sparse-mode
+    enabled: true
+
+ospf:
+  process_id: 1
+
+pim:
+  rp_address: 192.0.2.1
+  group_list: 224.0.0/4
