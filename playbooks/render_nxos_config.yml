@@ -37,7 +37,6 @@
           ansible.builtin.command: "git add ."
           args:
             chdir: ~/repositories/network
-          run_once: true
 
         - name: Commit changes
           ansible.builtin.command: "git commit -m 'Automated configuration update via Ansible'"
@@ -59,3 +58,4 @@
           loop: "{{ [commit_result, push_result] }}"
           when: item is defined and item is not failed
       delegate_to: localhost
+      run_once: true
