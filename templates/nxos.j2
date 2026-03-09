@@ -194,7 +194,6 @@ interface mgmt0
 {% for interface in loopback_interfaces %}
 interface {{ interface.name }}
 {% if interface.ip_address is defined %}
- no switchport
  ip address {{ interface.ip_address }}{{ interface.mask }}
 {% endif %}
 {% if interface.ospf_process_id is defined %}
