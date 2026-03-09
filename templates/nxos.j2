@@ -187,11 +187,11 @@ interface {{ interface.name }}
 {% else %}
  shutdown
 {% endif %}
+{% endfor %}
 
 interface mgmt0
   vrf member management
-  ip address {{ interface.ip_address }}{{ interface.mask }}
-{% endfor %}
+  ip address {{ management_ip }}{{ management_mask }}
 icam monitor scale
 
 line console

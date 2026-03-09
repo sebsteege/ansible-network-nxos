@@ -1,12 +1,9 @@
 ---
 management_gateway: 192.168.100.1
+management_ip: 192.168.100.200
+management_mask: /24
 
 interfaces:
-  - name: mgmt0
-    vrf: management
-    ip_address: 192.168.100.200
-    mask: /24
-    enabled: true
   - name: loopback0
     ip_address: 198.51.100.30
     mask: /32
