@@ -1,6 +1,6 @@
 ---
 - name: Render configuration from template for Cisco NX-OS
-  hosts: all
+  hosts: Leaf1
   gather_facts: false
 
   tasks:

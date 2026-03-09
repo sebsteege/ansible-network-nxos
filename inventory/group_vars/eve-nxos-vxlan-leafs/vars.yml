@@ -1,0 +1,7 @@
+anycast_mac: 0000.2222.3333
+
+vlans:
+  - id: 10
+    name: VNI10
+    vn-segment: 1010
+

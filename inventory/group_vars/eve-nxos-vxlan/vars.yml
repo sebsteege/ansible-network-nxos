@@ -12,3 +12,11 @@ features:
     state: enabled
   - name: interface-vlan
     state: enabled
+  - name: ospf
+    state: enabled
+  - name: bgp
+    state: enabled
+  - name: lldp
+    state: enabled
+  - name: pim
+    state: enabled

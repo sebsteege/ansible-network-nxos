@@ -77,7 +77,9 @@ vdc {{ inventory_hostname }} id 1
 {% for feature in features if feature.state == "enabled" %}
 feature {{ feature.name }}
 {% endfor %}
+{% if inventory_hostname in groups['eve-nxos-vxlan'] %}
 nv overlay evpn
+{% endif %}
 
 role name priv-15
   description This is a system defined privilege role.
@@ -169,197 +171,22 @@ vrf context management
   ip route 0.0.0.0/0 {{ management_gateway }}
 
 {% for interface in interfaces %}
-interface Ethernet1/1
-  switchport mode access
-
-interface Ethernet1/2
-  switchport mode access
-
-interface Ethernet1/3
-  switchport mode access
-
-interface Ethernet1/4
-  switchport mode access
-
-interface Ethernet1/5
-  switchport mode access
-
-interface Ethernet1/6
-  switchport mode access
-
-interface Ethernet1/7
-  switchport mode access
-
-interface Ethernet1/8
-  switchport mode access
-
-interface Ethernet1/9
-  switchport mode access
-
-interface Ethernet1/10
-  switchport mode access
-
-interface Ethernet1/11
-  switchport mode access
-
-interface Ethernet1/12
-  switchport mode access
-
-interface Ethernet1/13
-  switchport mode access
-
-interface Ethernet1/14
-  switchport mode access
-
-interface Ethernet1/15
-  switchport mode access
-
-interface Ethernet1/16
-  switchport mode access
-
-interface Ethernet1/17
-  switchport mode access
-
-interface Ethernet1/18
-  switchport mode access
-
-interface Ethernet1/19
-  switchport mode access
-
-interface Ethernet1/20
-  switchport mode access
-
-interface Ethernet1/21
-  switchport mode access
-
-interface Ethernet1/22
-  switchport mode access
-
-interface Ethernet1/23
-  switchport mode access
-
-interface Ethernet1/24
-  switchport mode access
-
-interface Ethernet1/25
-  switchport mode access
-
-interface Ethernet1/26
-  switchport mode access
-
-interface Ethernet1/27
-  switchport mode access
-
-interface Ethernet1/28
-  switchport mode access
-
-interface Ethernet1/29
-  switchport mode access
-
-interface Ethernet1/30
-  switchport mode access
-
-interface Ethernet1/31
-  switchport mode access
-
-interface Ethernet1/32
-  switchport mode access
-
-interface Ethernet1/33
-  switchport mode access
-
-interface Ethernet1/34
-  switchport mode access
-
-interface Ethernet1/35
-  switchport mode access
-
-interface Ethernet1/36
-  switchport mode access
-
-interface Ethernet1/37
-  switchport mode access
-
-interface Ethernet1/38
-  switchport mode access
-
-interface Ethernet1/39
-  switchport mode access
-
-interface Ethernet1/40
-  switchport mode access
-
-interface Ethernet1/41
-  switchport mode access
-
-interface Ethernet1/42
-  switchport mode access
-
-interface Ethernet1/43
-  switchport mode access
-
-interface Ethernet1/44
-  switchport mode access
-
-interface Ethernet1/45
-  switchport mode access
-
-interface Ethernet1/46
-  switchport mode access
-
-interface Ethernet1/47
-  switchport mode access
-
-interface Ethernet1/48
-  switchport mode access
-
-interface Ethernet1/49
-  switchport mode access
-
-interface Ethernet1/50
-  switchport mode access
-
-interface Ethernet1/51
-  switchport mode access
-
-interface Ethernet1/52
-  switchport mode access
-
-interface Ethernet1/53
-  switchport mode access
-
-interface Ethernet1/54
-  switchport mode access
-
-interface Ethernet1/55
-  switchport mode access
-
-interface Ethernet1/56
-  switchport mode access
-
-interface Ethernet1/57
-  switchport mode access
-
-interface Ethernet1/58
-  switchport mode access
-
-interface Ethernet1/59
-  switchport mode access
-
-interface Ethernet1/60
-  switchport mode access
-
-interface Ethernet1/61
-  switchport mode access
-
-interface Ethernet1/62
-  switchport mode access
-
-interface Ethernet1/63
-  switchport mode access
-
-interface Ethernet1/64
-  switchport mode access
+interface {{ interface.name }}
+{% if interface.ip_address is defined %}
+ no switchport
+ ip address {{ interface.ip_address }}{{ interface.mask }}
+{% endif %}
+{% if interface.ospf_process_id is defined %}
+ ip router ospf {{ interface.ospf_process_id }} area {{ interface.ospf_area }}
+{% endif %}
+{% if interface.pim is defined %}
+ ip pim {{ interface.pim }}
+{% endif %}
+{% if interface.enabled == true %}
+ no shutdown
+{% else %}
+ shutdown
+{% endif %}
 
 interface mgmt0
   vrf member management
