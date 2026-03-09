@@ -3562,3 +3562,154 @@ See the timeout setting options in the Network Debug and Troubleshooting Guide.
 2026-03-09 13:26:56,192 p=19415 u=ansible n=ansible | TASK [Add changes to git] ************************************************************************************************************************************************************
 2026-03-09 13:26:56,192 p=19415 u=ansible n=ansible | Monday 09 March 2026  13:26:56 -0400 (0:00:17.957)       0:00:27.307 ********** 
 2026-03-09 13:26:56,192 p=19415 u=ansible n=ansible | Monday 09 March 2026  13:26:56 -0400 (0:00:17.957)       0:00:27.307 ********** 
+2026-03-09 13:26:56,487 p=19415 u=ansible n=ansible | changed: [Leaf1 -> localhost]
+2026-03-09 13:26:56,490 p=19415 u=ansible n=ansible | TASK [Commit changes] ****************************************************************************************************************************************************************
+2026-03-09 13:26:56,491 p=19415 u=ansible n=ansible | Monday 09 March 2026  13:26:56 -0400 (0:00:00.298)       0:00:27.606 ********** 
+2026-03-09 13:26:56,491 p=19415 u=ansible n=ansible | Monday 09 March 2026  13:26:56 -0400 (0:00:00.298)       0:00:27.605 ********** 
+2026-03-09 13:26:56,702 p=19415 u=ansible n=ansible | changed: [Leaf1 -> localhost]
+2026-03-09 13:26:56,705 p=19415 u=ansible n=ansible | TASK [Push changes to the remote repository] *****************************************************************************************************************************************
+2026-03-09 13:26:56,706 p=19415 u=ansible n=ansible | Monday 09 March 2026  13:26:56 -0400 (0:00:00.215)       0:00:27.821 ********** 
+2026-03-09 13:26:56,706 p=19415 u=ansible n=ansible | Monday 09 March 2026  13:26:56 -0400 (0:00:00.215)       0:00:27.820 ********** 
+2026-03-09 13:27:00,084 p=19415 u=ansible n=ansible | changed: [Leaf1 -> localhost]
+2026-03-09 13:27:00,087 p=19415 u=ansible n=ansible | TASK [Display commit and push results] ***********************************************************************************************************************************************
+2026-03-09 13:27:00,087 p=19415 u=ansible n=ansible | Monday 09 March 2026  13:27:00 -0400 (0:00:03.381)       0:00:31.203 ********** 
+2026-03-09 13:27:00,088 p=19415 u=ansible n=ansible | Monday 09 March 2026  13:27:00 -0400 (0:00:03.381)       0:00:31.202 ********** 
+2026-03-09 13:27:00,127 p=19415 u=ansible n=ansible | ok: [Leaf1 -> localhost] => (item={'changed': True, 'stdout': '[main f723ee8] Automated configuration update via Ansible\n 1 file changed, 97 insertions(+)', 'stderr': '', 'rc': 0, 'cmd': ['git', 'commit', '-m', 'Automated configuration update via Ansible'], 'start': '2026-03-09 13:26:56.658050', 'end': '2026-03-09 13:26:56.673376', 'delta': '0:00:00.015326', 'msg': '', 'stdout_lines': ['[main f723ee8] Automated configuration update via Ansible', ' 1 file changed, 97 insertions(+)'], 'stderr_lines': [], 'failed': False}) => {
+    "msg": "[main f723ee8] Automated configuration update via Ansible\n 1 file changed, 97 insertions(+)"
+}
+2026-03-09 13:27:00,138 p=19415 u=ansible n=ansible | ok: [Leaf1 -> localhost] => (item={'changed': True, 'stdout': "branch 'main' set up to track 'origin/main'.", 'stderr': 'remote: . Processing 1 references        \nremote: Processed 1 references in total        \nTo https://gitea.cvlab.net/ansible/network.git\n   64e1517..f723ee8  main -> main', 'rc': 0, 'cmd': ['git', 'push', '-u', 'origin', 'main'], 'start': '2026-03-09 13:26:56.894889', 'end': '2026-03-09 13:27:00.046050', 'delta': '0:00:03.151161', 'msg': '', 'stdout_lines': ["branch 'main' set up to track 'origin/main'."], 'stderr_lines': ['remote: . Processing 1 references        ', 'remote: Processed 1 references in total        ', 'To https://gitea.cvlab.net/ansible/network.git', '   64e1517..f723ee8  main -> main'], 'failed': False}) => {
+    "msg": "branch 'main' set up to track 'origin/main'."
+}
+2026-03-09 13:27:00,145 p=19415 u=ansible n=ansible | PLAY RECAP ***************************************************************************************************************************************************************************
+2026-03-09 13:27:00,148 p=19415 u=ansible n=ansible | Leaf1                      : ok=5    changed=3    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2026-03-09 13:27:00,148 p=19415 u=ansible n=ansible | Leaf2                      : ok=1    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2026-03-09 13:27:00,148 p=19415 u=ansible n=ansible | Leaf3                      : ok=1    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2026-03-09 13:27:00,149 p=19415 u=ansible n=ansible | Leaf4                      : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-03-09 13:27:00,149 p=19415 u=ansible n=ansible | Spine1                     : ok=1    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2026-03-09 13:27:00,149 p=19415 u=ansible n=ansible | Spine2                     : ok=1    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2026-03-09 13:27:00,150 p=19415 u=ansible n=ansible | Playbook run took 0 days, 0 hours, 0 minutes, 31 seconds
+2026-03-09 13:27:00,150 p=19415 u=ansible n=ansible | Monday 09 March 2026  13:27:00 -0400 (0:00:00.062)       0:00:31.266 ********** 
+2026-03-09 13:27:00,151 p=19415 u=ansible n=ansible | =============================================================================== 
+2026-03-09 13:27:00,151 p=19415 u=ansible n=ansible | Replace config --------------------------------------------------------------------------------------------------------------------------------------------------------------- 17.96s
+2026-03-09 13:27:00,151 p=19415 u=ansible n=ansible | Ensure feature scp-server is enabled ------------------------------------------------------------------------------------------------------------------------------------------ 4.29s
+2026-03-09 13:27:00,151 p=19415 u=ansible n=ansible | Render config from template --------------------------------------------------------------------------------------------------------------------------------------------------- 3.65s
+2026-03-09 13:27:00,152 p=19415 u=ansible n=ansible | Push changes to the remote repository ----------------------------------------------------------------------------------------------------------------------------------------- 3.38s
+2026-03-09 13:27:00,152 p=19415 u=ansible n=ansible | Copy config to device --------------------------------------------------------------------------------------------------------------------------------------------------------- 1.41s
+2026-03-09 13:27:00,152 p=19415 u=ansible n=ansible | Add changes to git ------------------------------------------------------------------------------------------------------------------------------------------------------------ 0.30s
+2026-03-09 13:27:00,152 p=19415 u=ansible n=ansible | Commit changes ---------------------------------------------------------------------------------------------------------------------------------------------------------------- 0.22s
+2026-03-09 13:27:00,152 p=19415 u=ansible n=ansible | Display commit and push results ----------------------------------------------------------------------------------------------------------------------------------------------- 0.06s
+2026-03-09 13:27:00,153 p=19415 u=ansible n=ansible | Monday 09 March 2026  13:27:00 -0400 (0:00:00.065)       0:00:31.267 ********** 
+2026-03-09 13:27:00,153 p=19415 u=ansible n=ansible | =============================================================================== 
+2026-03-09 13:27:00,153 p=19415 u=ansible n=ansible | cisco.nxos.nxos_config ------------------------------------------------- 17.96s
+2026-03-09 13:27:00,153 p=19415 u=ansible n=ansible | cisco.nxos.nxos_feature ------------------------------------------------- 4.29s
+2026-03-09 13:27:00,154 p=19415 u=ansible n=ansible | ansible.builtin.command ------------------------------------------------- 3.90s
+2026-03-09 13:27:00,154 p=19415 u=ansible n=ansible | ansible.builtin.template ------------------------------------------------ 3.65s
+2026-03-09 13:27:00,154 p=19415 u=ansible n=ansible | ansible.netcommon.net_put ----------------------------------------------- 1.41s
+2026-03-09 13:27:00,154 p=19415 u=ansible n=ansible | ansible.builtin.debug --------------------------------------------------- 0.07s
+2026-03-09 13:27:00,155 p=19415 u=ansible n=ansible | ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+2026-03-09 13:27:00,155 p=19415 u=ansible n=ansible | total ------------------------------------------------------------------ 31.26s
+2026-03-09 13:27:00,244 p=19718 u=ansible n=ansible | shutdown complete
+2026-03-09 13:37:12,527 p=20121 u=ansible n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2026-03-09 13:37:12,670 p=20121 u=ansible n=ansible | PLAY [Render configuration from template for Cisco NX-OS] ****************************************************************************************************************************
+2026-03-09 13:37:12,679 p=20121 u=ansible n=ansible | TASK [Render config from template] ***************************************************************************************************************************************************
+2026-03-09 13:37:12,679 p=20121 u=ansible n=ansible | Monday 09 March 2026  13:37:12 -0400 (0:00:00.012)       0:00:00.012 ********** 
+2026-03-09 13:37:12,680 p=20121 u=ansible n=ansible | Monday 09 March 2026  13:37:12 -0400 (0:00:00.011)       0:00:00.011 ********** 
+2026-03-09 13:37:15,891 p=20121 u=ansible n=ansible | changed: [Leaf3 -> localhost]
+2026-03-09 13:37:15,893 p=20121 u=ansible n=ansible | changed: [Leaf1 -> localhost]
+2026-03-09 13:37:15,895 p=20121 u=ansible n=ansible | changed: [Spine1 -> localhost]
+2026-03-09 13:37:15,906 p=20121 u=ansible n=ansible | changed: [Leaf2 -> localhost]
+2026-03-09 13:37:15,917 p=20121 u=ansible n=ansible | changed: [Leaf4 -> localhost]
+2026-03-09 13:37:16,310 p=20121 u=ansible n=ansible | changed: [Spine2 -> localhost]
+2026-03-09 13:37:16,315 p=20121 u=ansible n=ansible | TASK [Ensure feature scp-server is enabled] ******************************************************************************************************************************************
+2026-03-09 13:37:16,316 p=20121 u=ansible n=ansible | Monday 09 March 2026  13:37:16 -0400 (0:00:03.636)       0:00:03.648 ********** 
+2026-03-09 13:37:16,316 p=20121 u=ansible n=ansible | Monday 09 March 2026  13:37:16 -0400 (0:00:03.636)       0:00:03.647 ********** 
+2026-03-09 13:37:20,962 p=20121 u=ansible n=ansible | network_os is set to cisco.nxos.nxos
+2026-03-09 13:37:20,962 p=20121 u=ansible n=ansible | [WARNING]: ansible-pylibssh not installed, falling back to paramiko
+
+2026-03-09 13:37:20,993 p=20121 u=ansible n=ansible | network_os is set to cisco.nxos.nxos
+2026-03-09 13:37:20,997 p=20121 u=ansible n=ansible | network_os is set to cisco.nxos.nxos
+2026-03-09 13:37:21,057 p=20121 u=ansible n=ansible | network_os is set to cisco.nxos.nxos
+2026-03-09 13:37:21,093 p=20121 u=ansible n=ansible | network_os is set to cisco.nxos.nxos
+2026-03-09 13:37:21,182 p=20488 u=ansible n=p=20488 u=ansible | paramiko [192.168.100.200] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:21,204 p=20494 u=ansible n=p=20494 u=ansible | paramiko [192.168.100.202] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:21,222 p=20493 u=ansible n=p=20493 u=ansible | paramiko [192.168.100.201] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:21,224 p=20497 u=ansible n=p=20497 u=ansible | paramiko [192.168.100.205] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:21,276 p=20500 u=ansible n=p=20500 u=ansible | paramiko [192.168.100.203] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:22,273 p=20488 u=ansible n=p=20488 u=ansible | paramiko [192.168.100.200] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:22,274 p=20488 u=ansible n=p=20488 u=ansible | paramiko [192.168.100.200] | Authentication (publickey) successful!
+2026-03-09 13:37:22,302 p=20494 u=ansible n=p=20494 u=ansible | paramiko [192.168.100.202] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:22,302 p=20494 u=ansible n=p=20494 u=ansible | paramiko [192.168.100.202] | Authentication (publickey) successful!
+2026-03-09 13:37:22,327 p=20497 u=ansible n=p=20497 u=ansible | paramiko [192.168.100.205] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:22,327 p=20497 u=ansible n=p=20497 u=ansible | paramiko [192.168.100.205] | Authentication (publickey) successful!
+2026-03-09 13:37:22,347 p=20493 u=ansible n=p=20493 u=ansible | paramiko [192.168.100.201] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:22,347 p=20493 u=ansible n=p=20493 u=ansible | paramiko [192.168.100.201] | Authentication (publickey) successful!
+2026-03-09 13:37:22,352 p=20500 u=ansible n=p=20500 u=ansible | paramiko [192.168.100.203] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:22,352 p=20500 u=ansible n=p=20500 u=ansible | paramiko [192.168.100.203] | Authentication (publickey) successful!
+2026-03-09 13:37:24,710 p=20121 u=ansible n=ansible | ok: [Leaf3]
+2026-03-09 13:37:24,778 p=20121 u=ansible n=ansible | ok: [Leaf1]
+2026-03-09 13:37:24,804 p=20121 u=ansible n=ansible | ok: [Leaf2]
+2026-03-09 13:37:24,834 p=20121 u=ansible n=ansible | ok: [Spine1]
+2026-03-09 13:37:24,842 p=20121 u=ansible n=ansible | ok: [Leaf4]
+2026-03-09 13:37:25,393 p=20121 u=ansible n=ansible | network_os is set to cisco.nxos.nxos
+2026-03-09 13:37:25,569 p=20550 u=ansible n=p=20550 u=ansible | paramiko [192.168.100.204] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:25,793 p=20550 u=ansible n=p=20550 u=ansible | paramiko [192.168.100.204] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:25,794 p=20550 u=ansible n=p=20550 u=ansible | paramiko [192.168.100.204] | Authentication (publickey) successful!
+2026-03-09 13:37:28,359 p=20121 u=ansible n=ansible | ok: [Spine2]
+2026-03-09 13:37:28,361 p=20121 u=ansible n=ansible | TASK [Copy config to device] *********************************************************************************************************************************************************
+2026-03-09 13:37:28,362 p=20121 u=ansible n=ansible | Monday 09 March 2026  13:37:28 -0400 (0:00:12.046)       0:00:15.694 ********** 
+2026-03-09 13:37:28,362 p=20121 u=ansible n=ansible | Monday 09 March 2026  13:37:28 -0400 (0:00:12.045)       0:00:15.693 ********** 
+2026-03-09 13:37:32,717 p=20488 u=ansible n=p=20488 u=ansible | paramiko [192.168.100.200] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:32,737 p=20493 u=ansible n=p=20493 u=ansible | paramiko [192.168.100.201] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:32,739 p=20494 u=ansible n=p=20494 u=ansible | paramiko [192.168.100.202] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:32,765 p=20500 u=ansible n=p=20500 u=ansible | paramiko [192.168.100.203] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:32,786 p=20497 u=ansible n=p=20497 u=ansible | paramiko [192.168.100.205] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:33,718 p=20488 u=ansible n=p=20488 u=ansible | paramiko [192.168.100.200] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:33,718 p=20488 u=ansible n=p=20488 u=ansible | paramiko [192.168.100.200] | Authentication (publickey) successful!
+2026-03-09 13:37:33,829 p=20494 u=ansible n=p=20494 u=ansible | paramiko [192.168.100.202] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:33,829 p=20494 u=ansible n=p=20494 u=ansible | paramiko [192.168.100.202] | Authentication (publickey) successful!
+2026-03-09 13:37:33,832 p=20493 u=ansible n=p=20493 u=ansible | paramiko [192.168.100.201] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:33,832 p=20493 u=ansible n=p=20493 u=ansible | paramiko [192.168.100.201] | Authentication (publickey) successful!
+2026-03-09 13:37:33,841 p=20500 u=ansible n=p=20500 u=ansible | paramiko [192.168.100.203] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:33,842 p=20500 u=ansible n=p=20500 u=ansible | paramiko [192.168.100.203] | Authentication (publickey) successful!
+2026-03-09 13:37:33,844 p=20497 u=ansible n=p=20497 u=ansible | paramiko [192.168.100.205] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:33,845 p=20497 u=ansible n=p=20497 u=ansible | paramiko [192.168.100.205] | Authentication (publickey) successful!
+2026-03-09 13:37:34,202 p=20488 u=ansible n=p=20488 u=ansible | paramiko [192.168.100.200] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:34,295 p=20500 u=ansible n=p=20500 u=ansible | paramiko [192.168.100.203] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:34,305 p=20497 u=ansible n=p=20497 u=ansible | paramiko [192.168.100.205] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:34,324 p=20494 u=ansible n=p=20494 u=ansible | paramiko [192.168.100.202] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:34,353 p=20493 u=ansible n=p=20493 u=ansible | paramiko [192.168.100.201] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:35,002 p=20488 u=ansible n=p=20488 u=ansible | paramiko [192.168.100.200] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:35,003 p=20488 u=ansible n=p=20488 u=ansible | paramiko [192.168.100.200] | Authentication (publickey) successful!
+2026-03-09 13:37:35,286 p=20121 u=ansible n=ansible | changed: [Leaf1]
+2026-03-09 13:37:35,311 p=20497 u=ansible n=p=20497 u=ansible | paramiko [192.168.100.205] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:35,311 p=20497 u=ansible n=p=20497 u=ansible | paramiko [192.168.100.205] | Authentication (publickey) successful!
+2026-03-09 13:37:35,318 p=20500 u=ansible n=p=20500 u=ansible | paramiko [192.168.100.203] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:35,318 p=20500 u=ansible n=p=20500 u=ansible | paramiko [192.168.100.203] | Authentication (publickey) successful!
+2026-03-09 13:37:35,347 p=20494 u=ansible n=p=20494 u=ansible | paramiko [192.168.100.202] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:35,348 p=20494 u=ansible n=p=20494 u=ansible | paramiko [192.168.100.202] | Authentication (publickey) successful!
+2026-03-09 13:37:35,351 p=20493 u=ansible n=p=20493 u=ansible | paramiko [192.168.100.201] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:35,351 p=20493 u=ansible n=p=20493 u=ansible | paramiko [192.168.100.201] | Authentication (publickey) successful!
+2026-03-09 13:37:35,680 p=20121 u=ansible n=ansible | changed: [Spine1]
+2026-03-09 13:37:35,682 p=20121 u=ansible n=ansible | changed: [Leaf3]
+2026-03-09 13:37:35,692 p=20121 u=ansible n=ansible | changed: [Leaf4]
+2026-03-09 13:37:35,692 p=20121 u=ansible n=ansible | changed: [Leaf2]
+2026-03-09 13:37:36,057 p=20550 u=ansible n=p=20550 u=ansible | paramiko [192.168.100.204] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:36,276 p=20550 u=ansible n=p=20550 u=ansible | paramiko [192.168.100.204] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:36,276 p=20550 u=ansible n=p=20550 u=ansible | paramiko [192.168.100.204] | Authentication (publickey) successful!
+2026-03-09 13:37:36,703 p=20550 u=ansible n=p=20550 u=ansible | paramiko [192.168.100.204] | Connected (version 2.0, client OpenSSH_8.0)
+2026-03-09 13:37:36,926 p=20550 u=ansible n=p=20550 u=ansible | paramiko [192.168.100.204] | Auth banner: b'User Access Verification\n'
+2026-03-09 13:37:36,926 p=20550 u=ansible n=p=20550 u=ansible | paramiko [192.168.100.204] | Authentication (publickey) successful!
+2026-03-09 13:37:37,250 p=20121 u=ansible n=ansible | changed: [Spine2]
+2026-03-09 13:37:37,252 p=20121 u=ansible n=ansible | TASK [Replace config] ****************************************************************************************************************************************************************
+2026-03-09 13:37:37,253 p=20121 u=ansible n=ansible | Monday 09 March 2026  13:37:37 -0400 (0:00:08.890)       0:00:24.585 ********** 
+2026-03-09 13:37:37,253 p=20121 u=ansible n=ansible | Monday 09 March 2026  13:37:37 -0400 (0:00:08.891)       0:00:24.584 ********** 
+2026-03-09 13:37:58,519 p=20121 u=ansible n=ansible | changed: [Leaf4]
+2026-03-09 13:37:58,569 p=20121 u=ansible n=ansible | changed: [Leaf3]
+2026-03-09 13:37:58,661 p=20121 u=ansible n=ansible | changed: [Spine1]
+2026-03-09 13:37:58,935 p=20121 u=ansible n=ansible | changed: [Leaf1]
+2026-03-09 13:37:59,350 p=20121 u=ansible n=ansible | changed: [Leaf2]
+2026-03-09 13:38:16,850 p=20121 u=ansible n=ansible | changed: [Spine2]
+2026-03-09 13:38:16,853 p=20121 u=ansible n=ansible | TASK [Add changes to git] ************************************************************************************************************************************************************
+2026-03-09 13:38:16,854 p=20121 u=ansible n=ansible | Monday 09 March 2026  13:38:16 -0400 (0:00:39.600)       0:01:04.186 ********** 
+2026-03-09 13:38:16,854 p=20121 u=ansible n=ansible | Monday 09 March 2026  13:38:16 -0400 (0:00:39.600)       0:01:04.185 ********** 

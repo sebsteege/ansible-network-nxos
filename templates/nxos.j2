@@ -77,6 +77,7 @@ vdc {{ inventory_hostname }} id 1
 {% for feature in features if feature.state == "enabled" %}
 feature {{ feature.name }}
 {% endfor %}
+nv overlay evpn
 
 role name priv-15
   description This is a system defined privilege role.

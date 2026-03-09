@@ -6,8 +6,4 @@ interfaces:
     vrf: management
     ip_address: 192.168.100.200
     mask: /24
-
-features:
-  - name: scp-server
-    state: enabled
   

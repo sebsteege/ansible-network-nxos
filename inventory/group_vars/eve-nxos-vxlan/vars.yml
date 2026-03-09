@@ -2,3 +2,13 @@
 ansible_connection: ansible.netcommon.network_cli
 ansible_network_os: cisco.nxos.nxos
 ansible_user: ansible
+
+features:
+  - name: scp-server
+    state: enabled
+  - name: vn-segment
+    state: enabled
+  - name: vn-segment-vlan-based
+    state: enabled
+  - name: interface-vlan
+    state: enabled
