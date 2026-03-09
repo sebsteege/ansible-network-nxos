@@ -41,6 +41,3 @@ ospf:
 pim:
   rp_address: 192.0.2.1
   group_list: 224.0.0/4
-
-
-    
