@@ -5008,3 +5008,50 @@ The offending line appears to be:
 2026-03-09 16:29:47,924 p=27209 u=ansible n=ansible | TASK [Add changes to git] ************************************************************************************************************************************************************
 2026-03-09 16:29:47,925 p=27209 u=ansible n=ansible | Monday 09 March 2026  16:29:47 -0400 (0:00:24.851)       0:00:36.617 ********** 
 2026-03-09 16:29:47,925 p=27209 u=ansible n=ansible | Monday 09 March 2026  16:29:47 -0400 (0:00:24.851)       0:00:36.616 ********** 
+2026-03-09 16:29:48,263 p=27209 u=ansible n=ansible | changed: [Leaf1 -> localhost]
+2026-03-09 16:29:48,267 p=27209 u=ansible n=ansible | TASK [Commit changes] ****************************************************************************************************************************************************************
+2026-03-09 16:29:48,267 p=27209 u=ansible n=ansible | Monday 09 March 2026  16:29:48 -0400 (0:00:00.342)       0:00:36.959 ********** 
+2026-03-09 16:29:48,268 p=27209 u=ansible n=ansible | Monday 09 March 2026  16:29:48 -0400 (0:00:00.342)       0:00:36.958 ********** 
+2026-03-09 16:29:48,520 p=27209 u=ansible n=ansible | changed: [Leaf1 -> localhost]
+2026-03-09 16:29:48,525 p=27209 u=ansible n=ansible | TASK [Push changes to the remote repository] *****************************************************************************************************************************************
+2026-03-09 16:29:48,525 p=27209 u=ansible n=ansible | Monday 09 March 2026  16:29:48 -0400 (0:00:00.257)       0:00:37.217 ********** 
+2026-03-09 16:29:48,525 p=27209 u=ansible n=ansible | Monday 09 March 2026  16:29:48 -0400 (0:00:00.257)       0:00:37.216 ********** 
+2026-03-09 16:29:49,447 p=27209 u=ansible n=ansible | changed: [Leaf1 -> localhost]
+2026-03-09 16:29:49,451 p=27209 u=ansible n=ansible | TASK [Display commit and push results] ***********************************************************************************************************************************************
+2026-03-09 16:29:49,451 p=27209 u=ansible n=ansible | Monday 09 March 2026  16:29:49 -0400 (0:00:00.925)       0:00:38.143 ********** 
+2026-03-09 16:29:49,451 p=27209 u=ansible n=ansible | Monday 09 March 2026  16:29:49 -0400 (0:00:00.925)       0:00:38.142 ********** 
+2026-03-09 16:29:49,490 p=27209 u=ansible n=ansible | ok: [Leaf1 -> localhost] => (item={'changed': True, 'stdout': '[main b5d232e] Automated configuration update via Ansible\n 7 files changed, 245 insertions(+), 391 deletions(-)', 'stderr': '', 'rc': 0, 'cmd': ['git', 'commit', '-m', 'Automated configuration update via Ansible'], 'start': '2026-03-09 16:29:48.475267', 'end': '2026-03-09 16:29:48.492703', 'delta': '0:00:00.017436', 'msg': '', 'stdout_lines': ['[main b5d232e] Automated configuration update via Ansible', ' 7 files changed, 245 insertions(+), 391 deletions(-)'], 'stderr_lines': [], 'failed': False}) => {
+    "msg": "[main b5d232e] Automated configuration update via Ansible\n 7 files changed, 245 insertions(+), 391 deletions(-)"
+}
+2026-03-09 16:29:49,500 p=27209 u=ansible n=ansible | ok: [Leaf1 -> localhost] => (item={'changed': True, 'stdout': "branch 'main' set up to track 'origin/main'.", 'stderr': 'remote: . Processing 1 references        \nremote: Processed 1 references in total        \nTo https://gitea.cvlab.net/ansible/network.git\n   b2e733d..b5d232e  main -> main', 'rc': 0, 'cmd': ['git', 'push', '-u', 'origin', 'main'], 'start': '2026-03-09 16:29:48.708331', 'end': '2026-03-09 16:29:49.413741', 'delta': '0:00:00.705410', 'msg': '', 'stdout_lines': ["branch 'main' set up to track 'origin/main'."], 'stderr_lines': ['remote: . Processing 1 references        ', 'remote: Processed 1 references in total        ', 'To https://gitea.cvlab.net/ansible/network.git', '   b2e733d..b5d232e  main -> main'], 'failed': False}) => {
+    "msg": "branch 'main' set up to track 'origin/main'."
+}
+2026-03-09 16:29:49,505 p=27209 u=ansible n=ansible | PLAY RECAP ***************************************************************************************************************************************************************************
+2026-03-09 16:29:49,505 p=27209 u=ansible n=ansible | Leaf1                      : ok=8    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-03-09 16:29:49,506 p=27209 u=ansible n=ansible | Leaf2                      : ok=1    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2026-03-09 16:29:49,506 p=27209 u=ansible n=ansible | Leaf3                      : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-03-09 16:29:49,506 p=27209 u=ansible n=ansible | Leaf4                      : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-03-09 16:29:49,507 p=27209 u=ansible n=ansible | Playbook run took 0 days, 0 hours, 0 minutes, 38 seconds
+2026-03-09 16:29:49,507 p=27209 u=ansible n=ansible | Monday 09 March 2026  16:29:49 -0400 (0:00:00.055)       0:00:38.199 ********** 
+2026-03-09 16:29:49,507 p=27209 u=ansible n=ansible | =============================================================================== 
+2026-03-09 16:29:49,508 p=27209 u=ansible n=ansible | Replace config --------------------------------------------------------------------------------------------------------------------------------------------------------------- 24.85s
+2026-03-09 16:29:49,509 p=27209 u=ansible n=ansible | Ensure feature scp-server is enabled ------------------------------------------------------------------------------------------------------------------------------------------ 5.73s
+2026-03-09 16:29:49,509 p=27209 u=ansible n=ansible | Copy config to device --------------------------------------------------------------------------------------------------------------------------------------------------------- 3.85s
+2026-03-09 16:29:49,509 p=27209 u=ansible n=ansible | Render config from template --------------------------------------------------------------------------------------------------------------------------------------------------- 2.17s
+2026-03-09 16:29:49,509 p=27209 u=ansible n=ansible | Push changes to the remote repository ----------------------------------------------------------------------------------------------------------------------------------------- 0.93s
+2026-03-09 16:29:49,509 p=27209 u=ansible n=ansible | Add changes to git ------------------------------------------------------------------------------------------------------------------------------------------------------------ 0.34s
+2026-03-09 16:29:49,510 p=27209 u=ansible n=ansible | Commit changes ---------------------------------------------------------------------------------------------------------------------------------------------------------------- 0.26s
+2026-03-09 16:29:49,510 p=27209 u=ansible n=ansible | Display commit and push results ----------------------------------------------------------------------------------------------------------------------------------------------- 0.06s
+2026-03-09 16:29:49,511 p=27209 u=ansible n=ansible | Monday 09 March 2026  16:29:49 -0400 (0:00:00.059)       0:00:38.202 ********** 
+2026-03-09 16:29:49,511 p=27209 u=ansible n=ansible | =============================================================================== 
+2026-03-09 16:29:49,511 p=27209 u=ansible n=ansible | cisco.nxos.nxos_config ------------------------------------------------- 24.85s
+2026-03-09 16:29:49,511 p=27209 u=ansible n=ansible | cisco.nxos.nxos_feature ------------------------------------------------- 5.73s
+2026-03-09 16:29:49,512 p=27209 u=ansible n=ansible | ansible.netcommon.net_put ----------------------------------------------- 3.85s
+2026-03-09 16:29:49,512 p=27209 u=ansible n=ansible | ansible.builtin.template ------------------------------------------------ 2.17s
+2026-03-09 16:29:49,512 p=27209 u=ansible n=ansible | ansible.builtin.command ------------------------------------------------- 1.53s
+2026-03-09 16:29:49,512 p=27209 u=ansible n=ansible | ansible.builtin.debug --------------------------------------------------- 0.06s
+2026-03-09 16:29:49,513 p=27209 u=ansible n=ansible | ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+2026-03-09 16:29:49,513 p=27209 u=ansible n=ansible | total ------------------------------------------------------------------ 38.19s
+2026-03-09 16:29:49,604 p=27433 u=ansible n=ansible | shutdown complete
+2026-03-09 16:29:49,605 p=27439 u=ansible n=ansible | shutdown complete
+2026-03-09 16:29:49,606 p=27437 u=ansible n=ansible | shutdown complete

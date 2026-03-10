@@ -5,14 +5,14 @@ management_mask: /24
 
 loopback_interfaces:
   - name: loopback0
-    ip_address: 198.51.100.30
+    ip_address: 198.51.100.36
     mask: /32
     ospf_process_id: 1
     ospf_area: 0.0.0.0
     pim: sparse-mode
     enabled: true
   - name: loopback1
-    ip_address: 192.51.100.33
+    ip_address: 192.51.100.39
     mask: /32
     ospf_process_id: 1
     ospf_area: 0.0.0.0
