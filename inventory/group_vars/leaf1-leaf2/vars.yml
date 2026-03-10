@@ -1,0 +1,15 @@
+vlans:
+  - id: 101
+    name: VNI10
+    vn-segment: 900001
+  - id: 1001
+    name: VLAN1001
+    vn-segment: 2001001
+  - id: 1002
+    name: VLAN1002
+    vn-segment: 2001002
+  
+vlan_interfaces:
+  - name: vlan101
+    enabled: true
+    vxlan_vrf: 900001
