@@ -5,7 +5,7 @@
   connection: ansible.netcommon.network_cli
   vars:
     ansible_user: admin
-    ansible_ssh_pass: SeaBass7!
+    ansible_ssh_pass: {{ password }}
     ansible_network_os: cisco.nxos.nxos
 
   tasks:
