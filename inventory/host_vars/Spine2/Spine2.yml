@@ -1,5 +1,10 @@
 ---
+platform: nexus
+manufacturer: cisco
+device_type: 9000v
 management_gateway: 192.168.100.1
+management_ip: 192.168.100.204
+management_mask: /24
 
 interfaces:
   - name: mgmt0

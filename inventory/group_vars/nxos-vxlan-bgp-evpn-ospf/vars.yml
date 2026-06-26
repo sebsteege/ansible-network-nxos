@@ -1,0 +1,23 @@
+---
+ansible_connection: ansible.netcommon.network_cli
+ansible_network_os: cisco.nxos.nxos
+site: nxos-vxlan-bgp-evpn-ospf
+region: eve-ng-cvlab
+
+features:
+  - name: scp-server
+    state: enabled
+  - name: vn-segment
+    state: enabled
+  - name: vn-segment-vlan-based
+    state: enabled
+  - name: interface-vlan
+    state: enabled
+  - name: ospf
+    state: enabled
+  - name: bgp
+    state: enabled
+  - name: lldp
+    state: enabled
+  - name: pim
+    state: enabled

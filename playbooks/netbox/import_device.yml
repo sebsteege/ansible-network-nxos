@@ -1,0 +1,46 @@
+- name: Populate NetBox with Device Interfaces
+  hosts: all
+  gather_facts: false
+  tasks:
+
+    - name: Gather all legacy facts
+      cisco.nxos.nxos_facts:
+        gather_subset: all
+
+    - name: Print all available facts
+      ansible.builtin.debug:
+        var: ansible_facts
+
+    - name: Import devices
+      netbox.netbox.netbox_device:
+        netbox_url: "https://netbox.cvlab.net"
+        netbox_token: "nbt_ZMiVpyX8Nwnu.1lc7Sh1UPY80XC5nrZ7yyCEzJjltSt3KnIHpvwVm"
+        validate_certs: no
+        data:
+          name: "{{ inventory_hostname }}"
+          device_type: "{{ ansible_facts.net_platform }}"
+          device_role: "{{ role }}"
+          oob_ip: "{{ management_ip }}{{ management_mask }}"
+          serial: "{{ ansible_facts.net_serialnum }}"
+          platform: "{{ ansible_facts.net_system }}"
+          custom_fields:
+            OS_version: "{{ ansible_facts.net_version }}"
+
+    - name: Create mangement IP addresses in NetBox
+      netbox.netbox.netbox_ip_address:
+        netbox_url: "https://netbox.cvlab.net"
+        netbox_token: "nbt_ZMiVpyX8Nwnu.1lc7Sh1UPY80XC5nrZ7yyCEzJjltSt3KnIHpvwVm"
+        validate_certs: no
+        data:
+          address: "{{ management_ip }}{{ management_mask }}"
+          assigned_object:
+            device: "{{ inventory_hostname }}"            
+
+    - name: Assign primary ipv4 address to devices
+      netbox.netbox.netbox_device:
+        netbox_url: "https://netbox.cvlab.net"
+        netbox_token: "nbt_ZMiVpyX8Nwnu.1lc7Sh1UPY80XC5nrZ7yyCEzJjltSt3KnIHpvwVm"
+        validate_certs: no
+        data:
+          name: "{{ inventory_hostname }}"
+          primary_ip4: "{{ management_ip }}{{ management_mask }}"

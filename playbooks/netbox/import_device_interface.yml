@@ -1,0 +1,44 @@
+- name: Populate NetBox with Device Interfaces
+  hosts: all
+  gather_facts: false
+  tasks:
+
+    - name: Gather all legacy facts
+      cisco.nxos.nxos_facts:
+        gather_subset: all
+    
+    - name: Print all available facts
+      ansible.builtin.debug:
+        var: ansible_facts
+
+    - name: Create interfaces in NetBox
+      netbox.netbox.netbox_device_interface:
+        netbox_url: "https://netbox.cvlab.net"
+        netbox_token: "nbt_ZMiVpyX8Nwnu.1lc7Sh1UPY80XC5nrZ7yyCEzJjltSt3KnIHpvwVm"
+        validate_certs: no
+        data:
+          device: "{{ inventory_hostname }}"
+          name: "{{ item.key }}"
+          type: "other"  # You may need logic to map Ansible types to NetBox types
+          mtu: "{{ item.value.mtu | default(omit) }}"
+          enabled: "{{ item.value.state == 'up' }}"
+          duplex: "{{ item.value.duplex if item.value.duplex | default('') in ['half', 'full', 'auto'] else omit }}"
+          mode: "{{ item.value.mode | default(omit) }}"
+          description: "{{ item.value.description | default(omit) }}"
+          mgmt_only: "{{ item.key | lower is search('mgmt|management') | default(omit)}}"
+        state: present
+      loop: "{{ ansible_facts.net_interfaces | dict2items }}"
+      
+    - name: Create MAC addresses in NetBox
+      netbox.netbox.netbox_mac_address:
+        netbox_url: "https://netbox.cvlab.net"
+        netbox_token: "nbt_ZMiVpyX8Nwnu.1lc7Sh1UPY80XC5nrZ7yyCEzJjltSt3KnIHpvwVm"
+        validate_certs: no
+        data:
+          mac_address: "{{ item.value.macaddress }}"
+          assigned_object:
+            device: "{{ inventory_hostname }}"
+            name: "{{ item.key }}"
+        state: present
+      loop: "{{ ansible_facts.net_interfaces | dict2items }}"
+      when: item.value.macaddress is defined
